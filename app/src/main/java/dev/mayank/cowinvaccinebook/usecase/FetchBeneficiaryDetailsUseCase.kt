@@ -1,0 +1,48 @@
+package dev.mayank.cowinvaccinebook.usecase
+
+import dev.mayank.cowinvaccinebook.data.model.ApiResult
+import dev.mayank.cowinvaccinebook.data.model.BeneficiariesResponse
+import dev.mayank.cowinvaccinebook.data.model.BeneficiarySummary
+import dev.mayank.cowinvaccinebook.repository.CowinAppRepository
+import java.net.HttpURLConnection
+import java.util.*
+import javax.inject.Inject
+// TODO("Check partially vaccinated case")
+class FetchBeneficiaryDetailsUseCase @Inject constructor(
+    private val cowinAppRepository: CowinAppRepository
+): BaseUseCase<Unit, ApiResult<BeneficiariesResponse>>() {
+
+    companion object {
+        private const val ERROR_CODE_BENEFICIARY_NOT_FOUND = "APPOIN0001"
+    }
+
+    override suspend fun execute(input: Unit): ApiResult<BeneficiariesResponse> {
+        val beneficiaryResp = cowinAppRepository.fetchBeneficiaryDetails()
+        val savedBeneficiaryDetails = cowinAppRepository.getSavedBeneficiaryDetails()
+        val currYear = Calendar.getInstance().get(Calendar.YEAR)
+        if(beneficiaryResp is ApiResult.Success) {
+            beneficiaryResp.value.beneficiaries.map { beneficiary ->
+                BeneficiarySummary(
+                    brId = beneficiary.beneficiaryReferenceId,
+                    birthYear = beneficiary.birthYear,
+                    gender = beneficiary.gender,
+                    name = beneficiary.name,
+                    photoIdNumber = beneficiary.photoIdNumber,
+                    photoIdType = beneficiary.photoIdType,
+                    vaccinationStatus = beneficiary.vaccinationStatus,
+                    vaccine = beneficiary.vaccine,
+                    age = beneficiary.birthYear?.let { currYear - it.toInt() } ?: 0,
+                    appointmentCount = beneficiary.appointments?.size ?: 0,
+                    isChecked = savedBeneficiaryDetails.find { it.brId == beneficiary.beneficiaryReferenceId }?.isChecked
+                )
+            }.also {
+                cowinAppRepository.saveBeneficiaryDetails(it)
+            }
+        } else if(beneficiaryResp is ApiResult.GenericError &&
+            beneficiaryResp.code == HttpURLConnection.HTTP_BAD_REQUEST &&
+            beneficiaryResp.error.errorCode == ERROR_CODE_BENEFICIARY_NOT_FOUND) {
+            cowinAppRepository.saveBeneficiaryDetails(arrayListOf())
+        }
+        return beneficiaryResp
+    }
+}
