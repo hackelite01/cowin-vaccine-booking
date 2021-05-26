@@ -21,13 +21,13 @@
 Download the APK from [here](https://github.com/hackelite01/cowin-vaccine-booking/releases/download/v1.0.1/app-release.apk) Or Scan - [Qr Code 👨‍💻](#qr-code-)
 
 ## Screenshots
- <details>
-  <summary> Tap Here </summary>
+
+
 ![](/screenshots/Screenshot_20210514-131656.jpg?raw=true "Enter Phone Number Screen")
 ![](/screenshots/Screenshot_20210514-131845.jpg?raw=true "User Vaccine Booking Preference Screen")
 ![](/screenshots/Screenshot_20210514-131931.jpg?raw=true "Vaccine Booking Service Running")
 ![](/screenshots/Screenshot_20210514-232449.jpg?raw=true "Enter Captcha to Book Screen")
-  </details>
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
