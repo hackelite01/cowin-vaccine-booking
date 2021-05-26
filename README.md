@@ -18,7 +18,7 @@
 
 ## Installation
 
-Download the APK from [here](https://github.com/hackelite01/cowin-vaccine-booking/releases/download/v1.0.1/app-release.apk) Or Scan [QR CODE](#QR-CODE-)
+Download the APK from [here](https://github.com/hackelite01/cowin-vaccine-booking/releases/download/v1.0.1/app-release.apk) Or Scan [QR CODE](##QR-CODE-)
 
 ## Screenshots
 
@@ -40,6 +40,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 * Handle booking 2nd Dose
 * Multi Postal code slots checking
 
-#### QR CODE
+## QR CODE
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
