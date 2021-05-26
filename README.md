@@ -18,7 +18,7 @@
 
 ## Installation
 
-Download the APK from [here](https://github.com/hackelite01/cowin-vaccine-booking/releases/download/v1.0.0/Vaccine-Slot-Booking.apk) Or Scan - [Qr Code 👨‍💻](#qr-code-)
+Download the APK from [here](https://github.com/hackelite01/cowin-vaccine-booking/releases/download/v1.0.0/app-release.apk) Or Scan - [Qr Code 👨‍💻](##qr-code-)
 
 ## Screenshots
 
