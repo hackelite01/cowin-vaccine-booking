@@ -45,6 +45,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## QR CODE
 
 ##credits
-[Romio](https://github.com/1itromio/cowin-vaccine-booking/)
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
