@@ -44,6 +44,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## QR CODE
 
+![](https://telegra.ph/file/b48b6988ff243664eb138.jpg?raw=true "Scan QR CODE to download App")
+
 ##credits
 
 ## License
